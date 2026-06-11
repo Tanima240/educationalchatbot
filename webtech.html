@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Technology Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🌐 Web Technology Quiz</h1>
+
+    <form id="webtechForm">
+
+        <div class="quiz-box">
+
+            <p>1. Which language is used to structure a webpage?</p>
+            <input type="radio" name="q1" value="HTML" required> HTML<br>
+            <input type="radio" name="q1" value="CSS"> CSS<br>
+            <input type="radio" name="q1" value="Python"> Python<br>
+            <input type="radio" name="q1" value="Java"> Java<br>
+
+            <p>2. Which language is used for styling webpages?</p>
+            <input type="radio" name="q2" value="CSS" required> CSS<br>
+            <input type="radio" name="q2" value="HTML"> HTML<br>
+            <input type="radio" name="q2" value="SQL"> SQL<br>
+            <input type="radio" name="q2" value="Python"> Python<br>
+
+            <p>3. Which language is mainly used for webpage interactivity?</p>
+            <input type="radio" name="q3" value="JavaScript" required> JavaScript<br>
+            <input type="radio" name="q3" value="SQL"> SQL<br>
+            <input type="radio" name="q3" value="DBMS"> DBMS<br>
+            <input type="radio" name="q3" value="Flask"> Flask<br>
+
+            <p>4. Which tag creates a hyperlink in HTML?</p>
+            <input type="radio" name="q4" value="a" required> &lt;a&gt;<br>
+            <input type="radio" name="q4" value="h1"> &lt;h1&gt;<br>
+            <input type="radio" name="q4" value="p"> &lt;p&gt;<br>
+            <input type="radio" name="q4" value="br"> &lt;br&gt;<br>
+
+            <p>5. Which framework are we using to build EduBot?</p>
+            <input type="radio" name="q5" value="Flask" required> Flask<br>
+            <input type="radio" name="q5" value="Django"> Django<br>
+            <input type="radio" name="q5" value="React"> React<br>
+            <input type="radio" name="q5" value="Bootstrap"> Bootstrap<br>
+
+            <br>
+
+            <button type="button" onclick="checkWebTech()">
+                Submit Quiz
+            </button>
+
+            <div id="result" style="margin-top:20px;"></div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+    <a href="dashboard.html">
+        <button>🏠 Dashboard</button>
+    </a>
+</div>
+
+<script>
+function checkWebTech() {
+
+    let score = 0;
+
+    if (document.querySelector('input[name="q1"]:checked')?.value === "HTML")
+        score++;
+
+    if (document.querySelector('input[name="q2"]:checked')?.value === "CSS")
+        score++;
+
+    if (document.querySelector('input[name="q3"]:checked')?.value === "JavaScript")
+        score++;
+
+    if (document.querySelector('input[name="q4"]:checked')?.value === "a")
+        score++;
+
+    if (document.querySelector('input[name="q5"]:checked')?.value === "Flask")
+        score++;
+
+    let recommendation = "";
+
+    if (score >= 4) {
+        recommendation = "Excellent! You have strong Web Technology knowledge.";
+    }
+    else if (score >= 2) {
+        recommendation = "Good. Revise HTML, CSS and JavaScript.";
+    }
+    else {
+        recommendation = "You need more practice in Web Technology.";
+    }
+
+    document.getElementById("result").innerHTML =
+        "<h2>Score: " + score + "/5</h2>" +
+        "<p>" + recommendation + "</p>";
+}
+</script>
+
+</body>
+</html>

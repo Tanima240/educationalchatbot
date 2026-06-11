@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operating Systems Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>⚙️ Operating Systems Quiz</h1>
+
+    <form id="osForm">
+
+        <div class="quiz-box">
+
+            <p>1. Which is an Operating System?</p>
+            <input type="radio" name="q1" value="Linux" required> Linux<br>
+            <input type="radio" name="q1" value="MySQL"> MySQL<br>
+            <input type="radio" name="q1" value="HTML"> HTML<br>
+
+            <p>2. Which scheduling algorithm follows First Come First Serve?</p>
+            <input type="radio" name="q2" value="FCFS" required> FCFS<br>
+            <input type="radio" name="q2" value="Round Robin"> Round Robin<br>
+            <input type="radio" name="q2" value="Priority"> Priority Scheduling<br>
+
+            <p>3. Core component of Operating System?</p>
+            <input type="radio" name="q3" value="Kernel" required> Kernel<br>
+            <input type="radio" name="q3" value="Compiler"> Compiler<br>
+            <input type="radio" name="q3" value="Assembler"> Assembler<br>
+
+            <p>4. Main memory is called?</p>
+            <input type="radio" name="q4" value="RAM" required> RAM<br>
+            <input type="radio" name="q4" value="ROM"> ROM<br>
+            <input type="radio" name="q4" value="Cache"> Cache<br>
+
+            <p>5. Program in execution is called?</p>
+            <input type="radio" name="q5" value="Process" required> Process<br>
+            <input type="radio" name="q5" value="Thread"> Thread<br>
+            <input type="radio" name="q5" value="Program"> Program<br>
+
+            <br>
+
+            <button type="button" onclick="checkOS()">
+                Submit Quiz
+            </button>
+
+            <div id="result" style="margin-top:20px;"></div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+    <a href="dashboard.html">
+        <button>🏠 Dashboard</button>
+    </a>
+</div>
+
+<script>
+function checkOS() {
+
+    let score = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "Linux")
+        score++;
+
+    if(document.querySelector('input[name="q2"]:checked')?.value === "FCFS")
+        score++;
+
+    if(document.querySelector('input[name="q3"]:checked')?.value === "Kernel")
+        score++;
+
+    if(document.querySelector('input[name="q4"]:checked')?.value === "RAM")
+        score++;
+
+    if(document.querySelector('input[name="q5"]:checked')?.value === "Process")
+        score++;
+
+    let recommendation = "";
+
+    if(score >= 4)
+        recommendation = "Excellent! You have strong Operating Systems knowledge.";
+    else if(score >= 2)
+        recommendation = "Good. Revise Scheduling, Memory and Processes.";
+    else
+        recommendation = "You need more practice in Operating Systems.";
+
+    document.getElementById("result").innerHTML =
+        "<h2>Score: " + score + "/5</h2>" +
+        "<p>" + recommendation + "</p>";
+}
+</script>
+
+</body>
+</html>

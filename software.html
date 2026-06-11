@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Software Engineering Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>💻 Software Engineering Quiz</h1>
+
+    <form id="softwareForm">
+
+        <div class="quiz-box">
+
+            <p>1. Which SDLC model is sequential?</p>
+            <input type="radio" name="q1" value="Waterfall" required> Waterfall Model<br>
+            <input type="radio" name="q1" value="Agile"> Agile Model<br>
+            <input type="radio" name="q1" value="Spiral"> Spiral Model<br>
+
+            <p>2. What does SRS stand for?</p>
+            <input type="radio" name="q2" value="SRS" required> Software Requirement Specification<br>
+            <input type="radio" name="q2" value="Report"> Software Reporting System<br>
+            <input type="radio" name="q2" value="Service"> System Requirement Service<br>
+
+            <p>3. Which phase collects user requirements?</p>
+            <input type="radio" name="q3" value="Requirement Gathering" required> Requirement Gathering<br>
+            <input type="radio" name="q3" value="Testing"> Testing<br>
+            <input type="radio" name="q3" value="Maintenance"> Maintenance<br>
+
+            <p>4. Which phase checks software quality?</p>
+            <input type="radio" name="q4" value="Testing" required> Testing<br>
+            <input type="radio" name="q4" value="Coding"> Coding<br>
+            <input type="radio" name="q4" value="Design"> Design<br>
+
+            <p>5. Which model focuses on iterative development?</p>
+            <input type="radio" name="q5" value="Agile" required> Agile<br>
+            <input type="radio" name="q5" value="Waterfall"> Waterfall<br>
+            <input type="radio" name="q5" value="V Model"> V Model<br>
+
+            <br>
+
+            <button type="button" onclick="checkSoftware()">
+                Submit Quiz
+            </button>
+
+            <div id="result" style="margin-top:20px;"></div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+    <a href="dashboard.html">
+        <button>🏠 Dashboard</button>
+    </a>
+</div>
+
+<script>
+function checkSoftware() {
+
+    let score = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "Waterfall")
+        score++;
+
+    if(document.querySelector('input[name="q2"]:checked')?.value === "SRS")
+        score++;
+
+    if(document.querySelector('input[name="q3"]:checked')?.value === "Requirement Gathering")
+        score++;
+
+    if(document.querySelector('input[name="q4"]:checked')?.value === "Testing")
+        score++;
+
+    if(document.querySelector('input[name="q5"]:checked')?.value === "Agile")
+        score++;
+
+    let recommendation = "";
+
+    if(score >= 4)
+        recommendation = "Excellent! You have strong Software Engineering knowledge.";
+    else if(score >= 2)
+        recommendation = "Good. Revise SDLC Models, SRS and Testing.";
+    else
+        recommendation = "You need more practice in Software Engineering.";
+
+    document.getElementById("result").innerHTML =
+        "<h2>Score: " + score + "/5</h2>" +
+        "<p>" + recommendation + "</p>";
+}
+</script>
+
+</body>
+</html>

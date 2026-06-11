@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DBMS Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🗄️ DBMS Quiz</h1>
+
+    <form id="dbmsForm">
+
+        <div class="quiz-box">
+
+            <p>1. What does DBMS stand for?</p>
+            <input type="radio" name="q1" value="DBMS" required> Database Management System<br>
+            <input type="radio" name="q1" value="Backup"> Data Backup Management System<br>
+            <input type="radio" name="q1" value="Mapping"> Database Mapping System<br>
+
+            <p>2. Which language is used to query databases?</p>
+            <input type="radio" name="q2" value="SQL" required> SQL<br>
+            <input type="radio" name="q2" value="HTML"> HTML<br>
+            <input type="radio" name="q2" value="CSS"> CSS<br>
+
+            <p>3. Which key uniquely identifies a record?</p>
+            <input type="radio" name="q3" value="Primary Key" required> Primary Key<br>
+            <input type="radio" name="q3" value="Foreign Key"> Foreign Key<br>
+            <input type="radio" name="q3" value="Candidate Key"> Candidate Key<br>
+
+            <p>4. Normalization is used to?</p>
+            <input type="radio" name="q4" value="Reduce Redundancy" required> Reduce Redundancy<br>
+            <input type="radio" name="q4" value="Increase Storage"> Increase Storage<br>
+            <input type="radio" name="q4" value="Delete Records"> Delete Records<br>
+
+            <p>5. Which command retrieves data?</p>
+            <input type="radio" name="q5" value="SELECT" required> SELECT<br>
+            <input type="radio" name="q5" value="DELETE"> DELETE<br>
+            <input type="radio" name="q5" value="DROP"> DROP<br>
+
+            <br>
+
+            <button type="button" onclick="checkDBMS()">
+                Submit Quiz
+            </button>
+
+            <div id="result" style="margin-top:20px;"></div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+    <a href="dashboard.html">
+        <button>🏠 Dashboard</button>
+    </a>
+</div>
+
+<script>
+function checkDBMS() {
+
+    let score = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "DBMS")
+        score++;
+
+    if(document.querySelector('input[name="q2"]:checked')?.value === "SQL")
+        score++;
+
+    if(document.querySelector('input[name="q3"]:checked')?.value === "Primary Key")
+        score++;
+
+    if(document.querySelector('input[name="q4"]:checked')?.value === "Reduce Redundancy")
+        score++;
+
+    if(document.querySelector('input[name="q5"]:checked')?.value === "SELECT")
+        score++;
+
+    let recommendation = "";
+
+    if(score >= 4)
+        recommendation = "Excellent! You have strong DBMS knowledge.";
+    else if(score >= 2)
+        recommendation = "Good. Revise SQL, Keys and Normalization.";
+    else
+        recommendation = "You need more practice in DBMS.";
+
+    document.getElementById("result").innerHTML =
+        "<h2>Score: " + score + "/5</h2>" +
+        "<p>" + recommendation + "</p>";
+}
+</script>
+
+</body>
+</html>

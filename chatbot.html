@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduBot AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 EduBot AI Assistant</h1>
+
+    <p>Ask questions about Web Technology, DBMS, Software Engineering, and Operating Systems.</p>
+
+    <input type="text"
+           id="question"
+           placeholder="Type your question here..."
+           required>
+
+    <br><br>
+
+    <button onclick="askBot()">Send</button>
+
+    <div class="result-box" id="chatbox"
+         style="margin-top:20px; text-align:left; display:none;">
+    </div>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+    <a href="dashboard.html">
+        <button>🏠 Dashboard</button>
+    </a>
+</div>
+
+<script>
+function askBot() {
+
+    let question =
+        document.getElementById("question").value.toLowerCase();
+
+    let answer =
+        "Sorry, I don't know the answer to that yet.";
+
+    // Web Technology
+    if(question.includes("html"))
+        answer = "HTML is used to structure webpages.";
+
+    else if(question.includes("css"))
+        answer = "CSS is used to style webpages.";
+
+    else if(question.includes("javascript"))
+        answer = "JavaScript adds interactivity to webpages.";
+
+    // DBMS
+    else if(question.includes("dbms"))
+        answer = "DBMS stands for Database Management System.";
+
+    else if(question.includes("sql"))
+        answer = "SQL is used to query and manage databases.";
+
+    else if(question.includes("normalization"))
+        answer = "Normalization reduces data redundancy in databases.";
+
+    // Software Engineering
+    else if(question.includes("waterfall"))
+        answer = "Waterfall is a sequential software development model.";
+
+    else if(question.includes("srs"))
+        answer = "SRS stands for Software Requirement Specification.";
+
+    else if(question.includes("agile"))
+        answer = "Agile focuses on iterative and incremental development.";
+
+    // Operating Systems
+    else if(question.includes("operating system"))
+        answer = "An Operating System manages hardware and software resources.";
+
+    else if(question.includes("kernel"))
+        answer = "Kernel is the core component of an Operating System.";
+
+    else if(question.includes("process"))
+        answer = "A process is a program in execution.";
+
+    document.getElementById("chatbox").style.display = "block";
+
+    document.getElementById("chatbox").innerHTML =
+        "<p><strong>👨‍🎓 You:</strong> " + question + "</p>" +
+        "<hr>" +
+        "<p><strong>🤖 EduBot:</strong> " + answer + "</p>";
+}
+</script>
+
+</body>
+</html>
